@@ -1,20 +1,30 @@
-import React from 'react';
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import Index from './app/index';
-import Demo from './app/demo';
-import Login from './app/login';
-import Error from './app/error404';
-import PrivateRoute from './components/PrivateRoute'; // Đường dẫn tới PrivateRoute
-import { UserProvider } from './context/UserContext'; // Đường dẫn tới UserContext
+import React from "react";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import Index from "./app/home";
+import Trangchu from "./app/home/pages";
+import Demo from "./app/demo";
+import Login from "./app/login";
+import Error from "./app/error404";
+import PrivateRoute from "./components/PrivateRoute"; // Đường dẫn tới PrivateRoute
+import { UserProvider } from "./context/UserContext"; // Đường dẫn tới UserContext
+import Bangcong from "./app/home/pages/bangcong";
+import Bophan from "./app/home/pages/bophan";
+import Nhanvien from "./app/home/pages/nhanvien";
 
 function App() {
   return (
     <UserProvider>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<PrivateRoute element={<Index />} />} />
-          <Route path="/demo" element={<PrivateRoute element={<Demo />} />} />
+        <Route path="/" element={<PrivateRoute element={<Index />} />}>
+          <Route index element={<Trangchu />} />
+          <Route path="/bang-cong" element={<Bangcong />} />
+          <Route path="/bo-phan" element={<Bophan />} />
+          <Route path="/nhan-vien" element={<Nhanvien />} />
+          <Route path="/demo" element={<Demo />} />
           <Route path="/*" element={<Error />} />
+        </Route>
+        <Route path="/*" element={<Error />} />
       </Routes>
     </UserProvider>
   );
