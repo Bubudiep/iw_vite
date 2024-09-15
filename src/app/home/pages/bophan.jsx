@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Bophan = () => {
-  const [activeDepartment, setActiveDepartment] = useState(null);
-  const [activeRole, setActiveRole] = useState(null);
+  const [openDepartments, setOpenDepartments] = useState([]); // Lưu trữ danh sách các department đang mở
+  const [activeRole, setActiveRole] = useState({
+    deptIndex: null,
+    roleIndex: null,
+  }); // Thay đổi cấu trúc lưu activeRole
+  const navigate = useNavigate(); // Khởi tạo useNavigate
 
   const departments = [
     {
@@ -56,6 +61,17 @@ const Bophan = () => {
     },
   ];
 
+  // Toggle mở hoặc đóng department
+  const toggleDepartment = (deptIndex) => {
+    if (openDepartments.includes(deptIndex)) {
+      setOpenDepartments(
+        openDepartments.filter((index) => index !== deptIndex)
+      ); // Đóng department
+    } else {
+      setOpenDepartments([...openDepartments, deptIndex]); // Mở department
+    }
+  };
+
   return (
     <div className="main-sub">
       <div className="sub-layout">
@@ -73,25 +89,40 @@ const Bophan = () => {
               <div key={deptIndex} className="department">
                 <div
                   className={`items ${
-                    activeDepartment === deptIndex ? "active" : ""
+                    openDepartments.includes(deptIndex) ? "active" : ""
                   }`}
                   onClick={() => {
-                    setActiveDepartment(deptIndex);
-                    setActiveRole(null); // Reset active role when changing department
+                    toggleDepartment(deptIndex);
+                    setActiveRole({ deptIndex: null, roleIndex: null }); // Reset active role when changing department
+                    navigate(
+                      `/bo-phan/department/${encodeURIComponent(
+                        department.name
+                      )}` // Điều hướng đến route bộ phận
+                    );
                   }}
                 >
                   <div className="name">{department.name}</div>
                   <div className="employee">{department.employeeCount}</div>
                 </div>
-                {activeDepartment === deptIndex && (
+                {openDepartments.includes(deptIndex) && (
                   <div className="roles">
                     {department.roles.map((role, roleIndex) => (
                       <div
                         key={roleIndex}
                         className={`role ${
-                          activeRole === roleIndex ? "active" : ""
+                          activeRole.deptIndex === deptIndex &&
+                          activeRole.roleIndex === roleIndex
+                            ? "active"
+                            : ""
                         }`}
-                        onClick={() => setActiveRole(roleIndex)}
+                        onClick={() => {
+                          setActiveRole({ deptIndex, roleIndex }); // Lưu cả deptIndex và roleIndex
+                          navigate(
+                            `/bo-phan/department/${encodeURIComponent(
+                              department.name
+                            )}/role/${encodeURIComponent(role.name)}`
+                          ); // Điều hướng đến route vị trí
+                        }}
                       >
                         <div className="active" />
                         <div className="role-name">{role.name}</div>
@@ -103,6 +134,9 @@ const Bophan = () => {
               </div>
             ))}
           </div>
+        </div>
+        <div className="right-sub">
+          <Outlet />
         </div>
       </div>
     </div>

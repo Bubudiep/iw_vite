@@ -17,7 +17,9 @@ const LeftContainer = () => {
 
   useEffect(() => {
     const currentPath = location.pathname;
-    const index = items.findIndex((item) => item.path === currentPath);
+    const index = items.findIndex(
+      (item) => item.path === "/" + currentPath.split("/")[1]
+    );
     if (index !== -1) {
       setActiveIndex(index);
     }

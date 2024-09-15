@@ -9,6 +9,8 @@ import PrivateRoute from "./components/PrivateRoute"; // Đường dẫn tới P
 import { UserProvider } from "./context/UserContext"; // Đường dẫn tới UserContext
 import Bangcong from "./app/home/pages/bangcong";
 import Bophan from "./app/home/pages/bophan";
+import Department from "./app/home/pages/bophan/phongban"; // Import component Department
+import Role from "./app/home/pages/bophan/vitri"; // Import component Role
 import Nhanvien from "./app/home/pages/nhanvien";
 
 function App() {
@@ -19,7 +21,16 @@ function App() {
         <Route path="/" element={<PrivateRoute element={<Index />} />}>
           <Route index element={<Trangchu />} />
           <Route path="/bang-cong" element={<Bangcong />} />
-          <Route path="/bo-phan" element={<Bophan />} />
+          <Route path="/bo-phan" element={<Bophan />}>
+            <Route
+              path="/bo-phan/department/:deptName"
+              element={<Department />}
+            />
+            <Route
+              path="/bo-phan/department/:deptName/role/:roleName"
+              element={<Role />}
+            />
+          </Route>
           <Route path="/nhan-vien" element={<Nhanvien />} />
           <Route path="/demo" element={<Demo />} />
           <Route path="/*" element={<Error />} />

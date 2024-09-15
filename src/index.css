@@ -484,6 +484,67 @@ button:focus-visible {
     }
   }
 }
+.department-tab {
+  animation: flyInFromRight 0.3s ease-out;
+  @apply flex flex-1 flex-col p-2 gap-2;
+  overflow: auto;
+  .department-name {
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  .feed-box {
+    display: flex;
+    gap: 10px;
+    height: 300px;
+    .news-box {
+      background-color: #fff;
+      display: flex;
+      flex: 1;
+      border-radius: 10px;
+      box-shadow: 1px 1px 2px #0003;
+    }
+    .olds-box {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      .items {
+        display: flex;
+        flex: 1;
+        gap: 10px;
+        width: -webkit-fill-available;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 1px 1px 2px #0003;
+        .logo {
+          max-width: 120px;
+          display: flex;
+          flex: 1;
+          align-items: center;
+          justify-content: center;
+          color: #999;
+        }
+        .details {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          padding: 5px;
+          .title {
+            font-weight: 500;
+            font-size: 1rem;
+          }
+          .description {
+            display: flex;
+            flex-wrap: wrap;
+            flex: 1;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
 .pd3 {
   padding: 3px;
 }
@@ -555,10 +616,42 @@ button:focus-visible {
   .fly-in {
     animation: flyInFromRight 0.3s ease-out;
   }
+  .white-nav {
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 1px 1px 2px #0003;
+    padding: 5px;
+    button,
+    label {
+      font-size: 0.8rem;
+      border-radius: 4px;
+      padding: 6px 8px;
+      border: 1px solid #d3d3d3;
+      background-color: #fff;
+      outline: none;
+      font-weight: 400;
+      cursor: pointer;
+    }
+    .left {
+      display: flex;
+      gap: 5px;
+    }
+    .right {
+      display: flex;
+      gap: 5px;
+      margin-left: auto;
+    }
+  }
   .sub-layout {
     display: flex;
     width: -webkit-fill-available;
     height: 100%;
+    .right-sub {
+      display: flex;
+      width: -webkit-fill-available;
+      height: 100%;
+    }
     .left-sub {
       background-color: #fff;
       display: flex;
@@ -570,6 +663,7 @@ button:focus-visible {
         display: flex;
         flex-direction: column;
         padding: 8px;
+        gap: 4px;
         .items {
           display: flex;
           justify-content: space-between;
@@ -640,6 +734,15 @@ button:focus-visible {
                 height: 15px;
               }
             }
+            &:hover {
+              color: #000;
+              .role-name {
+                margin-left: 5px;
+              }
+              .role-count {
+                color: #333;
+              }
+            }
           }
         }
       }
@@ -683,5 +786,74 @@ button:focus-visible {
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+.employeer-table {
+  background-color: #fff;
+  border-radius: 8px;
+  table {
+    width: 100%;
+    thead {
+      tr {
+        th {
+          cursor: pointer;
+          font-size: 0.7rem;
+          white-space: nowrap;
+          text-align: left;
+          padding: 8px 5px;
+          user-select: none;
+        }
+      }
+    }
+    tbody {
+      tr {
+        border-top: 1px solid #e1e1e1;
+        td {
+          padding: 2px 5px;
+          white-space: nowrap;
+          font-size: 0.8rem;
+          .on {
+            color: #34c400;
+          }
+          .off {
+            color: #b3b3b3;
+          }
+          .work {
+            color: #21c300;
+          }
+          .notwork {
+            color: rgb(196, 3, 0);
+          }
+          &.isOut {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 5px 8px;
+            font-style: italic;
+            text-align: center;
+          }
+          button {
+            padding: 6px 8px;
+            font-size: 0.7rem;
+            outline: none;
+            border: hidden;
+            transition: all 0.3s;
+            &.edit {
+              background-color: #74a4c1;
+              color: #fff;
+              &:hover {
+                background-color: #0066f4;
+              }
+            }
+            &.remove {
+              background-color: #c17c74;
+              color: #fff;
+              &:hover {
+                background-color: #c71502;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
