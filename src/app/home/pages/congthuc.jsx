@@ -1,20 +1,25 @@
 import React, { useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 
-const Nhanvien = () => {
+const Congthuc = () => {
   const [activeTools, setActiveTools] = useState(false);
   // Hàm kiểm tra mã nhân viên có tồn tại hay không
   const navigate = useNavigate(); // Khởi tạo useNavigate
   const listTools = [
     {
-      name: "Quản lý nhân viên",
-      count: 200,
-      link: "quanly-nhanvien",
+      name: "Hệ số giờ",
+      count: "",
+      link: "heso-gio",
     },
     {
-      name: "Phân quyền",
+      name: "Lịch nghỉ",
       count: "",
-      link: "phanquyen-nhanvien",
+      link: "lichnghi",
+    },
+    {
+      name: "Bảng lương",
+      count: "",
+      link: "bangluong",
     },
   ];
   return (
@@ -29,7 +34,7 @@ const Nhanvien = () => {
                   onClick={() => {
                     setActiveTools(idx);
                     navigate(
-                      `/nhan-vien/${tools.link}` // Điều hướng đến route bộ phận
+                      `/cong-thuc/${tools.link}` // Điều hướng đến route bộ phận
                     );
                   }}
                 >
@@ -48,4 +53,4 @@ const Nhanvien = () => {
   );
 };
 
-export default Nhanvien;
+export default Congthuc;

@@ -11,7 +11,7 @@ const PrivateRoute = ({ element }) => {
     const checkAuth = async () => {
       try {
         const token = document.cookie.replace(
-          /(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/,
+          /(?:(?:^|.*;\s*)itoken\s*=\s*([^;]*).*$)|^.*$/,
           "$1"
         );
         if (token) {

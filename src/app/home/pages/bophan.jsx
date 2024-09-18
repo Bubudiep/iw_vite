@@ -76,14 +76,6 @@ const Bophan = () => {
     <div className="main-sub">
       <div className="sub-layout">
         <div className="left-sub">
-          <div className="search-box">
-            <div className="search-box-inner">
-              <label htmlFor="searchDepartment">
-                <i className="fas fa-search"></i>
-              </label>
-              <input id="searchDepartment" type="text" placeholder="Tìm kiếm" />
-            </div>
-          </div>
           <div className="list-department">
             {departments.map((department, deptIndex) => (
               <div key={deptIndex} className="department">

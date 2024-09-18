@@ -11,6 +11,7 @@ const LeftContainer = () => {
   const items = [
     { name: "Trang chủ", icon: "fa-house", path: "/" },
     { name: "Bảng công", icon: "fa-calendar-days", path: "/bang-cong" },
+    { name: "Công thức", icon: "fa-square-root-variable", path: "/cong-thuc" },
     { name: "Nhân viên", icon: "fa-user", path: "/nhan-vien" },
     { name: "Bộ phận", icon: "fa-users", path: "/bo-phan" },
   ];

@@ -76,7 +76,7 @@ const Login = () => {
       expirationTime.setTime(
         expirationTime.getTime() + 7 * 24 * 60 * 60 * 1000
       ); // 7 days in milliseconds
-      document.cookie = `token=${token}; expires=${expirationTime.toUTCString()}; path=/`;
+      document.cookie = `itoken=${token}; expires=${expirationTime.toUTCString()}; path=/`;
       navigate("/");
     } catch (err) {
       setError("Login failed. Please try again.");
