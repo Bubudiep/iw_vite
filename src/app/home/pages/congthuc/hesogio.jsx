@@ -78,7 +78,35 @@ const Hesogio = () => {
   };
   return (
     <div className="sub-main">
-      <div className="h2">Chia ca</div>
+      <div className="h2">Cài đặt chung</div>
+      <div className="flex gap-2 w-full">
+        <div className="white-box flex flex-col flex-1">
+          <div className="config-item">
+            <div className="details">
+              <div className="name">Ca làm việc chung</div>
+              <div className="description">
+                Số ca làm việc của công ty bạn, mục này sẽ ảnh hưởng đến phần
+                tính hệ số lương theo giờ làm
+              </div>
+            </div>
+            <div className="options"></div>
+          </div>
+        </div>
+        <div className="white-box flex flex-col flex-1">
+          <div className="config-item">
+            <div className="name">Ca làm việc chung</div>
+            <div className="options">
+              <select>
+                <option>Hành chính</option>
+                <option>Ca ngày/đêm</option>
+                <option>3 Ca</option>
+                <option>4 Ca</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="h2">Thiết lập chia ca</div>
       <div className="white-box">
         <div className="sub-head">
           <div className="flex flex-1 justify-between">
@@ -182,7 +210,6 @@ const Hesogio = () => {
           </table>
         </div>
       </div>
-      <div className="h2">Ngày làm việc</div>
     </div>
   );
 };
