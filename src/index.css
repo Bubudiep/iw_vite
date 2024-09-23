@@ -859,6 +859,11 @@ button:focus-visible {
     }
   }
 }
+.scrolling {
+  width: 100%;
+  height: 100%;
+  overflow: auto !important;
+}
 .sub-main {
   @apply p-2 flex flex-1 flex-col gap-2;
   .h2 {
@@ -870,10 +875,39 @@ button:focus-visible {
     border-radius: 10px;
     box-shadow: 1px 1px 5px #0003;
     overflow: hidden;
+    .options {
+      display: flex;
+      padding: 3px;
+    }
+    .config-item {
+      display: flex;
+      padding: 5px 8px;
+      justify-content: space-between;
+      border-bottom: 1px solid #0002;
+      .details {
+        display: flex;
+        flex-direction: column;
+        .name {
+          font-weight: 600;
+          display: flex;
+        }
+        .description {
+          max-width: 400px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: #999;
+          white-space: nowrap;
+          font-size: 0.8rem;
+        }
+      }
+    }
     .sub-head {
       @apply flex gap-2 items-center;
       box-shadow: 1px 1px 3px #0003;
       padding: 8px;
+      .shiftType {
+        font-weight: bold;
+      }
     }
     .sub-main {
       padding: 0px;
@@ -903,7 +937,6 @@ button:focus-visible {
             input[type="time"] {
               border-radius: 0px;
               width: 100px;
-              border-bottom: 1px solid #e9e9e9;
             }
             .breakTime {
               justify-content: center;
