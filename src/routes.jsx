@@ -18,6 +18,7 @@ import Congthuc from "./app/home/pages/congthuc";
 import Hesogio from "./app/home/pages/congthuc/hesogio";
 import Bangluong from "./app/home/pages/congthuc/bangluong";
 import Lichnghi from "./app/home/pages/congthuc/lichnghi";
+import Chiaca from "./app/home/pages/congthuc/chiaca";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route index element={<Trangchu />} />
           <Route path="/bang-cong" element={<Bangcong />} />
           <Route path="/cong-thuc" element={<Congthuc />}>
+            <Route path="/cong-thuc/chiaca" element={<Chiaca />} />
             <Route path="/cong-thuc/heso-gio" element={<Hesogio />} />
             <Route path="/cong-thuc/bangluong" element={<Bangluong />} />
             <Route path="/cong-thuc/lichnghi" element={<Lichnghi />} />
