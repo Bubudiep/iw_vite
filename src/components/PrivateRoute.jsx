@@ -15,7 +15,7 @@ const PrivateRoute = ({ element }) => {
           "$1"
         );
         if (token) {
-          const response = await api.get("/user", {
+          const response = await api.get("/user/", {
             headers: { Authorization: `Bearer ${token}` },
           });
           setUser(response.data);

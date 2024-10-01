@@ -21,7 +21,7 @@ const Login = () => {
       );
       if (token) {
         // Kiểm tra API để xác thực token
-        const response = await api.get("/user", {
+        const response = await api.get("/user/", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (response.data) {

@@ -14,7 +14,7 @@ const Congthuc = () => {
     {
       name: "Phân loại ngày",
       des: "Ngày thường, lễ, nghỉ, cắt phép, ngày bất thường phân bổ và tính hệ số và ghi chú.",
-      link: "bangluong",
+      link: "phanloai-ngay",
     },
     {
       name: "Quy tắc",

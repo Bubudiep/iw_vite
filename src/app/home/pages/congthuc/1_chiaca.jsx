@@ -109,10 +109,20 @@ const Chiaca = () => {
     <div className="scrolling">
       <div className="sub-main">
         <div className="h2">
-          <div className="left">Danh sách ca</div>
-          <div className="right">
-            <button onClick={addShift}>
+          <div className="left">
+            <button className="add" onClick={addShift}>
               <i className="fa-solid fa-plus"></i>Thêm ca
+            </button>
+          </div>
+          <div className="right">
+            <button>
+              <i className="fa-solid fa-book"></i> Hướng dẫn
+            </button>
+            <button>
+              <i className="fa-solid fa-circle-question"></i> Trợ giúp
+            </button>
+            <button>
+              <i className="fa-solid fa-bug"></i> Báo lỗi
             </button>
           </div>
         </div>

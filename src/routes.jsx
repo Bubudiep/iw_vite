@@ -18,7 +18,8 @@ import Congthuc from "./app/home/pages/congthuc";
 import Hesogio from "./app/home/pages/congthuc/hesogio";
 import Bangluong from "./app/home/pages/congthuc/bangluong";
 import Lichnghi from "./app/home/pages/congthuc/lichnghi";
-import Chiaca from "./app/home/pages/congthuc/chiaca";
+import Chiaca from "./app/home/pages/congthuc/1_chiaca";
+import PhanloaiNgay from "./app/home/pages/congthuc/2_phanloai-ngay";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/cong-thuc/heso-gio" element={<Hesogio />} />
             <Route path="/cong-thuc/bangluong" element={<Bangluong />} />
             <Route path="/cong-thuc/lichnghi" element={<Lichnghi />} />
+            <Route path="/cong-thuc/phanloai-ngay" element={<PhanloaiNgay />} />
           </Route>
           <Route path="/bo-phan" element={<Bophan />}>
             <Route
