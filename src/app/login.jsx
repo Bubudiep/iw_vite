@@ -9,8 +9,8 @@ const Login = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const client_secret =
-    "ZOftAFxAiGjTRGq7gv6maDONnyTjYUO3XnLImvMdUJbzC0Zxc7ofkwfOCJUWwC8cLwMi5cgEm1bnwKo6ApDiXYBDYJUDNUNmv9bFJWRUjDMzSg6hoRmEl2nM2BHNnxCJ";
-  const client_id = "WKaWvGthBMD8boZQJuzgBrCOR8wVvymnF5DwYjVv";
+    "s5n3Dys2fO64XHmFJ6b24WvFKBDHBeLryCaJresHpZ5IIETV7QDxMET8rTSxd8mTfYIACWhtXyZkpZXTi9I8tPYUaKXFErcO0s75tmaHbwkElJNVt1TJe9L5KFJPOcxs";
+  const client_id = "y9LneBmuh9I7e0jQs3gjt5X1T7X64IoOy9l6ZXMF";
 
   // Hàm kiểm tra và tự động đăng nhập nếu có token và thông tin tài khoản lưu trữ
   const checkAuth = async () => {
